@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buffett Wisdom Daily - 365 Days of Investment Wisdom from Buffett & Munger</title>
+    <meta name="description" content="Daily wisdom from Warren Buffett and Charlie Munger. 365 carefully curated quotes organized by month to guide your investment journey and decision-making.">
+    <meta name="keywords" content="Warren Buffett quotes, Charlie Munger wisdom, investment quotes, daily wisdom, value investing, Berkshire Hathaway">
+    <meta property="og:title" content="Buffett Wisdom Daily - 365 Days of Investment Wisdom">
+    <meta property="og:description" content="Daily wisdom from Warren Buffett and Charlie Munger. 365 curated quotes to guide your investment journey.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://henu-wang.github.io/buffett-wisdom-daily/">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://henu-wang.github.io/buffett-wisdom-daily/">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+        .font-serif-display { font-family: 'Playfair Display', serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+        .quote-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .quote-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .month-btn.active { background: #1e3a5f; color: white; }
+        .fade-in { animation: fadeIn 0.6s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-gradient { background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3a7ab5 100%); }
+        .wisdom-highlight { background: linear-gradient(120deg, #fef3c7 0%, #fde68a 100%); padding: 2px 6px; border-radius: 4px; }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: { 50:'#f0f4f8',100:'#d9e2ec',200:'#bcccdc',300:'#9fb3c8',400:'#829ab1',500:'#627d98',600:'#486581',700:'#334e68',800:'#243b53',900:'#102a43' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+
+<!-- Header -->
+<header class="hero-gradient text-white">
+    <nav class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="#" class="font-serif-display text-xl font-bold">Buffett Wisdom Daily</a>
+        <div class="flex gap-4 text-sm">
+            <a href="#today" class="hover:text-amber-300 transition">Today's Wisdom</a>
+            <a href="#browse" class="hover:text-amber-300 transition">Browse</a>
+            <a href="https://keeprule.com/en/masters" class="bg-amber-500 text-navy-900 px-3 py-1 rounded-full font-medium hover:bg-amber-400 transition">KeepRule</a>
+        </div>
+    </nav>
+    <div class="max-w-4xl mx-auto px-4 py-16 md:py-24 text-center">
+        <h1 class="font-serif-display text-4xl md:text-6xl font-bold mb-6 leading-tight">365 Days of<br><span class="text-amber-300">Investment Wisdom</span></h1>
+        <p class="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl mx-auto">Timeless insights from Warren Buffett and Charlie Munger, one quote for every day of the year.</p>
+        <a href="#today" class="inline-block bg-amber-500 text-navy-900 px-8 py-3 rounded-full font-semibold text-lg hover:bg-amber-400 transition shadow-lg">Get Today's Wisdom</a>
+    </div>
+</header>
+
+<!-- Today's Wisdom -->
+<section id="today" class="max-w-4xl mx-auto px-4 -mt-10 relative z-10 mb-16">
+    <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 text-center fade-in">
+        <div class="text-sm font-medium text-amber-600 mb-2 uppercase tracking-wider">Today's Wisdom</div>
+        <div id="today-date" class="text-sm text-gray-400 mb-6"></div>
+        <blockquote class="font-serif-display text-2xl md:text-3xl text-navy-800 leading-relaxed mb-6" id="today-quote"></blockquote>
+        <div class="text-gray-500 font-medium" id="today-author"></div>
+        <div class="mt-8 flex justify-center gap-4">
+            <button onclick="randomWisdom()" class="bg-navy-800 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-navy-700 transition">Random Wisdom</button>
+            <a href="https://keeprule.com/en/masters" class="border border-navy-300 text-navy-700 px-6 py-2 rounded-full text-sm font-medium hover:bg-navy-50 transition">Explore Masters on KeepRule</a>
+        </div>
+    </div>
+</section>
+
+<!-- Stats -->
+<section class="max-w-6xl mx-auto px-4 mb-16">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm"><div class="text-3xl font-bold text-navy-800">365</div><div class="text-sm text-gray-500">Daily Quotes</div></div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm"><div class="text-3xl font-bold text-navy-800">2</div><div class="text-sm text-gray-500">Legendary Minds</div></div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm"><div class="text-3xl font-bold text-navy-800">12</div><div class="text-sm text-gray-500">Monthly Themes</div></div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm"><div class="text-3xl font-bold text-navy-800">60+</div><div class="text-sm text-gray-500">Years of Wisdom</div></div>
+    </div>
+</section>
+
+<!-- Browse by Month -->
+<section id="browse" class="max-w-6xl mx-auto px-4 mb-16">
+    <h2 class="font-serif-display text-3xl font-bold text-center mb-2">Browse by Month</h2>
+    <p class="text-gray-500 text-center mb-8">Each month carries a unique theme of investment wisdom</p>
+    <div class="flex flex-wrap justify-center gap-2 mb-8" id="month-nav"></div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4" id="quotes-grid"></div>
+    <div class="text-center mt-8">
+        <button onclick="loadMore()" id="load-more-btn" class="bg-navy-800 text-white px-8 py-3 rounded-full font-medium hover:bg-navy-700 transition">Load More</button>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="hero-gradient text-white py-16">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="font-serif-display text-3xl font-bold mb-4">Apply This Wisdom to Your Decisions</h2>
+        <p class="text-blue-100 mb-8 text-lg">KeepRule helps you build decision frameworks inspired by the world's greatest investors.</p>
+        <a href="https://keeprule.com/en/masters" class="inline-block bg-amber-500 text-navy-900 px-8 py-3 rounded-full font-semibold text-lg hover:bg-amber-400 transition">Discover Masters on KeepRule</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-navy-900 text-gray-400 py-12">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="grid md:grid-cols-3 gap-8 mb-8">
+            <div>
+                <h3 class="font-serif-display text-white text-lg mb-3">Buffett Wisdom Daily</h3>
+                <p class="text-sm">365 days of curated investment wisdom from the Oracle of Omaha and his partner.</p>
+            </div>
+            <div>
+                <h3 class="text-white font-medium mb-3">KeepRule Tools</h3>
+                <ul class="text-sm space-y-2">
+                    <li><a href="https://keeprule.com/en/masters" class="hover:text-amber-400 transition">Investment Masters</a></li>
+                    <li><a href="https://keeprule.com/en/principles" class="hover:text-amber-400 transition">Decision Principles</a></li>
+                    <li><a href="https://keeprule.com/en/scenarios" class="hover:text-amber-400 transition">Scenario Planning</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-white font-medium mb-3">Explore More</h3>
+                <ul class="text-sm space-y-2">
+                    <li><a href="https://henu-wang.github.io/decision-making-templates/" class="hover:text-amber-400 transition">Decision Templates</a></li>
+                    <li><a href="https://henu-wang.github.io/cognitive-bias-test/" class="hover:text-amber-400 transition">Cognitive Bias Test</a></li>
+                    <li><a href="https://henu-wang.github.io/mental-model-flashcards/" class="hover:text-amber-400 transition">Mental Model Flashcards</a></li>
+                    <li><a href="https://henu-wang.github.io/investment-calculator-suite/" class="hover:text-amber-400 transition">Investment Calculators</a></li>
+                    <li><a href="https://henu-wang.github.io/decision-making-timeline/" class="hover:text-amber-400 transition">Decision Science Timeline</a></li>
+                    <li><a href="https://henu-wang.github.io/scenario-planning-workshop/" class="hover:text-amber-400 transition">Scenario Planning Workshop</a></li>
+                    <li><a href="https://henu-wang.github.io/investing-wisdom-quotes/" class="hover:text-amber-400 transition">Investing Wisdom Quotes</a></li>
+                    <li><a href="https://henu-wang.github.io/cognitive-bias-guide/" class="hover:text-amber-400 transition">Cognitive Bias Guide</a></li>
+                    <li><a href="https://henu-wang.github.io/value-investing-notes/" class="hover:text-amber-400 transition">Value Investing Notes</a></li>
+                    <li><a href="https://henu-wang.github.io/decision-frameworks/" class="hover:text-amber-400 transition">Decision Frameworks</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 pt-6 text-center text-sm">&copy; 2025 Buffett Wisdom Daily. Wisdom shared for educational purposes.</div>
+    </div>
+</footer>
+
+<script>
+const monthThemes = [
+    "Patience & Long-Term Thinking", "Value & Price", "Risk Management", "Circle of Competence",
+    "Temperament & Emotion", "Business Quality", "Learning & Reading", "Simplicity & Focus",
+    "Character & Integrity", "Market Wisdom", "Compounding & Growth", "Reflection & Review"
+];
+
+const quotes = [
+    // January - Patience & Long-Term Thinking
+    {m:1,d:1,q:"The stock market is a device for transferring money from the impatient to the patient.",a:"Warren Buffett"},
+    {m:1,d:2,q:"Our favorite holding period is forever.",a:"Warren Buffett"},
+    {m:1,d:3,q:"Someone's sitting in the shade today because someone planted a tree a long time ago.",a:"Warren Buffett"},
+    {m:1,d:4,q:"No matter how great the talent or efforts, some things just take time. You can't produce a baby in one month by getting nine women pregnant.",a:"Warren Buffett"},
+    {m:1,d:5,q:"The big money is not in the buying or the selling, but in the waiting.",a:"Charlie Munger"},
+    {m:1,d:6,q:"If you aren't willing to own a stock for ten years, don't even think about owning it for ten minutes.",a:"Warren Buffett"},
+    {m:1,d:7,q:"Time is the friend of the wonderful company, the enemy of the mediocre.",a:"Warren Buffett"},
+    {m:1,d:8,q:"The first rule of compounding: never interrupt it unnecessarily.",a:"Charlie Munger"},
+    {m:1,d:9,q:"You can't get rich with a weather vane.",a:"Warren Buffett"},
+    {m:1,d:10,q:"The key to investing is not how much an industry will affect society, but rather how much the competitive advantage of any given company is durable.",a:"Warren Buffett"},
+    {m:1,d:11,q:"Successful investing takes time, discipline and patience.",a:"Warren Buffett"},
+    {m:1,d:12,q:"We don't have to be smarter than the rest. We have to be more disciplined than the rest.",a:"Warren Buffett"},
+    {m:1,d:13,q:"An investor needs to do very few things right as long as he or she avoids big mistakes.",a:"Warren Buffett"},
+    {m:1,d:14,q:"The stock market is designed to transfer money from the active to the patient.",a:"Warren Buffett"},
+    {m:1,d:15,q:"It takes 20 years to build a reputation and five minutes to ruin it.",a:"Warren Buffett"},
+    {m:1,d:16,q:"Buy a stock the way you would buy a house. Understand and like it such that you'd be content to own it in the absence of any market.",a:"Warren Buffett"},
+    {m:1,d:17,q:"Investing is laying out money now to get more money back in the future.",a:"Warren Buffett"},
+    {m:1,d:18,q:"The most important quality for an investor is temperament, not intellect.",a:"Warren Buffett"},
+    {m:1,d:19,q:"Compound interest is the eighth wonder of the world.",a:"Warren Buffett"},
+    {m:1,d:20,q:"Do not take yearly results too seriously. Instead, focus on four or five-year averages.",a:"Warren Buffett"},
+    {m:1,d:21,q:"Our goal is to find an outstanding business at a sensible price, not a mediocre business at a bargain price.",a:"Warren Buffett"},
+    {m:1,d:22,q:"In the short run, the market is a voting machine but in the long run, it is a weighing machine.",a:"Warren Buffett"},
+    {m:1,d:23,q:"The years ahead will occasionally deliver major market declines. That will offer us opportunities.",a:"Warren Buffett"},
+    {m:1,d:24,q:"Lethargy bordering on sloth remains the cornerstone of our investment style.",a:"Warren Buffett"},
+    {m:1,d:25,q:"Benign neglect, bordering on sloth, remains the hallmark of our investment process.",a:"Warren Buffett"},
+    {m:1,d:26,q:"All there is to investing is picking good stocks at good times and staying with them as long as they remain good companies.",a:"Warren Buffett"},
+    {m:1,d:27,q:"An investor should act as though he had a lifetime decision card with just twenty punches on it.",a:"Warren Buffett"},
+    {m:1,d:28,q:"The trick is, when there is nothing to do, do nothing.",a:"Warren Buffett"},
+    {m:1,d:29,q:"I insist on a lot of time being spent, almost every day, to just sit and think.",a:"Warren Buffett"},
+    {m:1,d:30,q:"The market, like the Lord, helps those who help themselves. But unlike the Lord, the market does not forgive those who know not what they do.",a:"Warren Buffett"},
+    {m:1,d:31,q:"We simply attempt to be fearful when others are greedy and to be greedy only when others are fearful.",a:"Warren Buffett"},
+
+    // February - Value & Price
+    {m:2,d:1,q:"Price is what you pay. Value is what you get.",a:"Warren Buffett"},
+    {m:2,d:2,q:"It's far better to buy a wonderful company at a fair price than a fair company at a wonderful price.",a:"Warren Buffett"},
+    {m:2,d:3,q:"For the investor, a too-high purchase price for the stock of an excellent company can undo the effects of a subsequent decade of favorable business developments.",a:"Warren Buffett"},
+    {m:2,d:4,q:"All intelligent investing is value investing — acquiring more than you are paying for.",a:"Charlie Munger"},
+    {m:2,d:5,q:"The three most important words in investing are margin of safety.",a:"Warren Buffett"},
+    {m:2,d:6,q:"You don't have to swing at everything — you can wait for your pitch.",a:"Warren Buffett"},
+    {m:2,d:7,q:"Whether we're talking about socks or stocks, I like buying quality merchandise when it is marked down.",a:"Warren Buffett"},
+    {m:2,d:8,q:"The best thing that happens to us is when a great company gets into temporary trouble.",a:"Warren Buffett"},
+    {m:2,d:9,q:"If a business does well, the stock eventually follows.",a:"Warren Buffett"},
+    {m:2,d:10,q:"We are not interested in buying things that will be good eventually. We want things that are good now.",a:"Charlie Munger"},
+    {m:2,d:11,q:"Opportunities come infrequently. When it rains gold, put out the bucket, not the thimble.",a:"Warren Buffett"},
+    {m:2,d:12,q:"Only buy something that you'd be perfectly happy to hold if the market shut down for 10 years.",a:"Warren Buffett"},
+    {m:2,d:13,q:"A simple rule dictates my buying: be fearful when others are greedy, and be greedy when others are fearful.",a:"Warren Buffett"},
+    {m:2,d:14,q:"When a management with a reputation for brilliance tackles a business with a reputation for bad economics, it is the reputation of the business that remains intact.",a:"Warren Buffett"},
+    {m:2,d:15,q:"Intrinsic value is an all-important concept that offers the only logical approach to evaluating the relative attractiveness of investments and businesses.",a:"Warren Buffett"},
+    {m:2,d:16,q:"The investor of today does not profit from yesterday's growth.",a:"Warren Buffett"},
+    {m:2,d:17,q:"Never invest in a business you cannot understand.",a:"Warren Buffett"},
+    {m:2,d:18,q:"The most important thing to do if you find yourself in a hole is to stop digging.",a:"Warren Buffett"},
+    {m:2,d:19,q:"We've long felt that the only value of stock forecasters is to make fortune tellers look good.",a:"Warren Buffett"},
+    {m:2,d:20,q:"Risk comes from not knowing what you're doing.",a:"Warren Buffett"},
+    {m:2,d:21,q:"A great investment opportunity occurs when a marvelous business encounters a one-time huge, but solvable, problem.",a:"Warren Buffett"},
+    {m:2,d:22,q:"Never count on making a good sale. Have the purchase price be so attractive that even a mediocre sale gives good results.",a:"Warren Buffett"},
+    {m:2,d:23,q:"The market is there to serve you, not to instruct you.",a:"Warren Buffett"},
+    {m:2,d:24,q:"Only when the tide goes out do you discover who's been swimming naked.",a:"Warren Buffett"},
+    {m:2,d:25,q:"The less prudence with which others conduct their affairs, the greater the prudence with which we should conduct our own affairs.",a:"Warren Buffett"},
+    {m:2,d:26,q:"If you've been playing poker for half an hour and you still don't know who the patsy is, you're the patsy.",a:"Warren Buffett"},
+    {m:2,d:27,q:"There seems to be some perverse human characteristic that likes to make easy things difficult.",a:"Warren Buffett"},
+    {m:2,d:28,q:"After 25 years of buying and supervising a great variety of businesses, Charlie and I have not learned how to solve difficult business problems. What we have learned is to avoid them.",a:"Warren Buffett"},
+    {m:2,d:29,q:"Investing is not a game where the guy with the 160 IQ beats the guy with 130 IQ.",a:"Warren Buffett"},
+
+    // March - Risk Management
+    {m:3,d:1,q:"Rule No. 1: Never lose money. Rule No. 2: Never forget Rule No. 1.",a:"Warren Buffett"},
+    {m:3,d:2,q:"Risk comes from not knowing what you are doing.",a:"Warren Buffett"},
+    {m:3,d:3,q:"It is not necessary to do extraordinary things to get extraordinary results.",a:"Warren Buffett"},
+    {m:3,d:4,q:"The most important thing in investment is knowing when you don't know.",a:"Charlie Munger"},
+    {m:3,d:5,q:"There is no use running if you are on the wrong road.",a:"Warren Buffett"},
+    {m:3,d:6,q:"Diversification is protection against ignorance. It makes little sense if you know what you are doing.",a:"Warren Buffett"},
+    {m:3,d:7,q:"If you understood a business perfectly, you would need very little margin of safety.",a:"Warren Buffett"},
+    {m:3,d:8,q:"We believe that a policy of portfolio concentration may well decrease risk if it raises, as it should, both the intensity with which an investor thinks about a business and the comfort-level he must feel with its economic characteristics before buying into it.",a:"Warren Buffett"},
+    {m:3,d:9,q:"Uncertainty actually is the friend of the buyer of long-term values.",a:"Warren Buffett"},
+    {m:3,d:10,q:"I want to be able to explain my mistakes. This means I do only the things I completely understand.",a:"Warren Buffett"},
+    {m:3,d:11,q:"Acknowledging what you don't know is the dawning of wisdom.",a:"Charlie Munger"},
+    {m:3,d:12,q:"The most dangerous risk of all: spending your life not doing what you want on the bet you can buy yourself the freedom to do it later.",a:"Warren Buffett"},
+    {m:3,d:13,q:"People always want to know what the hot new idea is. We try to avoid the hot new idea.",a:"Charlie Munger"},
+    {m:3,d:14,q:"In the world of business, the people who are most successful are those who are doing what they love.",a:"Warren Buffett"},
+    {m:3,d:15,q:"Cash combined with courage in a time of crisis is priceless.",a:"Warren Buffett"},
+    {m:3,d:16,q:"Keep things simple and don't swing for the fences.",a:"Warren Buffett"},
+    {m:3,d:17,q:"Predicting rain doesn't count. Building arks does.",a:"Warren Buffett"},
+    {m:3,d:18,q:"You should invest in a business that even a fool can run, because someday a fool will.",a:"Warren Buffett"},
+    {m:3,d:19,q:"We don't predict. We just want to make sure we can handle any outcome.",a:"Charlie Munger"},
+    {m:3,d:20,q:"A pin lies in wait for every bubble. And when the two eventually meet, a new wave of investors learns some very old lessons.",a:"Warren Buffett"},
+    {m:3,d:21,q:"If you cannot control your emotions, you cannot control your money.",a:"Warren Buffett"},
+    {m:3,d:22,q:"The chains of habit are too light to be felt until they are too heavy to be broken.",a:"Warren Buffett"},
+    {m:3,d:23,q:"I try to buy stock in businesses that are so wonderful that an idiot can run them. Because sooner or later, one will.",a:"Warren Buffett"},
+    {m:3,d:24,q:"Half of all coin-flippers will win their first toss; none of those winners has an expectation of profit if he continues to play the game.",a:"Warren Buffett"},
+    {m:3,d:25,q:"It's only when the tide goes out that you learn who has been swimming naked.",a:"Warren Buffett"},
+    {m:3,d:26,q:"A public-opinion poll is no substitute for thought.",a:"Warren Buffett"},
+    {m:3,d:27,q:"Wall Street makes its money on activity. You make your money on inactivity.",a:"Warren Buffett"},
+    {m:3,d:28,q:"What an investor needs is the ability to correctly evaluate selected businesses.",a:"Warren Buffett"},
+    {m:3,d:29,q:"I don't look to jump over seven-foot bars; I look around for one-foot bars that I can step over.",a:"Warren Buffett"},
+    {m:3,d:30,q:"It is better to be approximately right than precisely wrong.",a:"Warren Buffett"},
+    {m:3,d:31,q:"The difference between successful people and really successful people is that really successful people say no to almost everything.",a:"Warren Buffett"},
+
+    // April - Circle of Competence
+    {m:4,d:1,q:"Know your circle of competence, and stick within it. The size of that circle is not very important; knowing its boundaries, however, is vital.",a:"Warren Buffett"},
+    {m:4,d:2,q:"You don't have to be an expert on everything. You just have to define what you can understand.",a:"Warren Buffett"},
+    {m:4,d:3,q:"If we have a strength, it is in recognizing when we are operating well within our circle of competence and when we are approaching the perimeter.",a:"Warren Buffett"},
+    {m:4,d:4,q:"The essential point is that you have to have an edge. And it has to be in your circle of competence.",a:"Charlie Munger"},
+    {m:4,d:5,q:"What counts for most people in investing is not how much they know, but rather how realistically they define what they don't know.",a:"Warren Buffett"},
+    {m:4,d:6,q:"I am a better investor because I am a businessman, and a better businessman because I am an investor.",a:"Warren Buffett"},
+    {m:4,d:7,q:"Understanding both the power and the limitations of our intelligence is the mark of true wisdom.",a:"Charlie Munger"},
+    {m:4,d:8,q:"We have self-selected into a field that suits us. We succeed because we pick simple things to do.",a:"Charlie Munger"},
+    {m:4,d:9,q:"Each player should be able to name his or her edge. If you can't, you don't have one.",a:"Charlie Munger"},
+    {m:4,d:10,q:"You only have to be able to evaluate companies within your circle of competence. The size of that circle is not very important.",a:"Warren Buffett"},
+    {m:4,d:11,q:"We will reject interesting opportunities rather than over-leverage our balance sheet.",a:"Warren Buffett"},
+    {m:4,d:12,q:"I only write about things I personally understand.",a:"Warren Buffett"},
+    {m:4,d:13,q:"If you have competence, you pretty much know its boundaries already. To ask the question is to answer it.",a:"Charlie Munger"},
+    {m:4,d:14,q:"We don't have to be able to do everything well. We have to be able to do a few things well.",a:"Charlie Munger"},
+    {m:4,d:15,q:"If we have a real competitive advantage, we can clearly articulate it. If we can't, we probably don't have one.",a:"Warren Buffett"},
+    {m:4,d:16,q:"When you combine ignorance and leverage, you get some pretty interesting results.",a:"Warren Buffett"},
+    {m:4,d:17,q:"Stay rational and stick to your own area of competence, if you have one.",a:"Charlie Munger"},
+    {m:4,d:18,q:"I don't try to jump over seven-foot bars; I look around for one-foot bars that I can step over.",a:"Warren Buffett"},
+    {m:4,d:19,q:"There's no called strikes in investing. You don't have to swing at every pitch.",a:"Warren Buffett"},
+    {m:4,d:20,q:"If you play games where other people have the aptitudes and you don't, you're going to lose.",a:"Charlie Munger"},
+    {m:4,d:21,q:"Life is too short to do business with people you don't like.",a:"Warren Buffett"},
+    {m:4,d:22,q:"We're the tortoise that has outrun the hare because it chose to stay on the course.",a:"Warren Buffett"},
+    {m:4,d:23,q:"We just try to focus on things we can understand and find mispriced.",a:"Charlie Munger"},
+    {m:4,d:24,q:"Our job is essentially to pick a few intelligent things to do, not to keep up with every damn thing in the world.",a:"Charlie Munger"},
+    {m:4,d:25,q:"Develop into a lifelong self-learner through voracious reading. Cultivate curiosity and strive to become a little wiser every day.",a:"Charlie Munger"},
+    {m:4,d:26,q:"Three things ruin people: drugs, liquor, and leverage.",a:"Charlie Munger"},
+    {m:4,d:27,q:"There is nothing wrong with a know-nothing investor who realizes it. The problem is when you are a know-nothing investor but you think you know something.",a:"Warren Buffett"},
+    {m:4,d:28,q:"The goal of a non-professional should not be to pick winners — neither he nor his helpers can do that — but should rather be to own a cross-section of businesses.",a:"Warren Buffett"},
+    {m:4,d:29,q:"I'm no genius. I'm smart in spots — but I stay around those spots.",a:"Charlie Munger"},
+    {m:4,d:30,q:"People are trying to be smart — all I am trying to do is not to be idiotic, but it's harder than most people think.",a:"Charlie Munger"},
+
+    // May - Temperament & Emotion
+    {m:5,d:1,q:"Be fearful when others are greedy, and greedy when others are fearful.",a:"Warren Buffett"},
+    {m:5,d:2,q:"The most important quality for an investor is temperament, not intellect.",a:"Warren Buffett"},
+    {m:5,d:3,q:"If you can keep your head when all about you are losing theirs... you'll have the world.",a:"Warren Buffett"},
+    {m:5,d:4,q:"You will not be right simply because a large number of people momentarily agree with you.",a:"Warren Buffett"},
+    {m:5,d:5,q:"The investor's chief problem — and even his worst enemy — is likely to be himself.",a:"Warren Buffett"},
+    {m:5,d:6,q:"We don't get paid for activity, just for being right.",a:"Warren Buffett"},
+    {m:5,d:7,q:"If past history was all that is needed to play the game of money, the richest people would be librarians.",a:"Warren Buffett"},
+    {m:5,d:8,q:"Emotional stability is more important than IQ.",a:"Warren Buffett"},
+    {m:5,d:9,q:"Look at market fluctuations as your friend rather than your enemy; profit from folly rather than participate in it.",a:"Warren Buffett"},
+    {m:5,d:10,q:"We want to be greedy when others are fearful and fearful when others are greedy.",a:"Warren Buffett"},
+    {m:5,d:11,q:"Rationality is the quality that I think distinguishes the people who really do well from the people who don't.",a:"Charlie Munger"},
+    {m:5,d:12,q:"The ability to say no is a tremendous advantage for an investor.",a:"Warren Buffett"},
+    {m:5,d:13,q:"Envy is a really stupid sin because it's the only one you could never possibly have any fun at.",a:"Charlie Munger"},
+    {m:5,d:14,q:"The world is not driven by greed. It's driven by envy.",a:"Charlie Munger"},
+    {m:5,d:15,q:"I would say that the temperament factor is more important than the IQ factor.",a:"Warren Buffett"},
+    {m:5,d:16,q:"Nothing sedates rationality like large doses of effortless money.",a:"Warren Buffett"},
+    {m:5,d:17,q:"Those who cannot control their urge to spend will never accumulate wealth.",a:"Warren Buffett"},
+    {m:5,d:18,q:"The smarter the journalists are, the better off society is.",a:"Warren Buffett"},
+    {m:5,d:19,q:"You need to have a passionate interest in why things are happening. That cast of mind, kept over long periods, gradually improves your ability to focus on reality.",a:"Charlie Munger"},
+    {m:5,d:20,q:"Our temperament won't change much in a lifetime. But we can learn to recognize our biases and work around them.",a:"Warren Buffett"},
+    {m:5,d:21,q:"I measure success by how many people love me. And the best way to be loved is to be loveable.",a:"Warren Buffett"},
+    {m:5,d:22,q:"Mimicking the herd invites regression to the mean.",a:"Charlie Munger"},
+    {m:5,d:23,q:"The market is the most efficient mechanism anywhere in the world for transferring wealth from impatient people to patient people.",a:"Warren Buffett"},
+    {m:5,d:24,q:"Somebody once said that in looking for people to hire, you look for three qualities: integrity, intelligence, and energy.",a:"Warren Buffett"},
+    {m:5,d:25,q:"I want to be able to explain my mistakes. This means I only do the things I completely understand.",a:"Warren Buffett"},
+    {m:5,d:26,q:"Independent thinking is one of the most valuable assets in investing.",a:"Warren Buffett"},
+    {m:5,d:27,q:"People who think they can predict the short-term movement of the stock market do not understand how it works.",a:"Warren Buffett"},
+    {m:5,d:28,q:"A great reputation is like a great tree: hard to build, easy to cut down.",a:"Warren Buffett"},
+    {m:5,d:29,q:"Never ask a barber if you need a haircut.",a:"Warren Buffett"},
+    {m:5,d:30,q:"The most important investment you can make is in yourself.",a:"Warren Buffett"},
+    {m:5,d:31,q:"You can always tell a man to go to hell tomorrow — so there's no reason to do it today.",a:"Warren Buffett"},
+
+    // June - Business Quality
+    {m:6,d:1,q:"A great business at a fair price is superior to a fair business at a great price.",a:"Warren Buffett"},
+    {m:6,d:2,q:"In business, I look for economic castles protected by unbreachable moats.",a:"Warren Buffett"},
+    {m:6,d:3,q:"The key to investing is not assessing how much an industry is going to affect society, or how much it will grow, but rather determining the competitive advantage of any given company.",a:"Warren Buffett"},
+    {m:6,d:4,q:"The best business is a royalty on the growth of others, requiring little capital itself.",a:"Warren Buffett"},
+    {m:6,d:5,q:"A truly great business must have an enduring moat that protects excellent returns on invested capital.",a:"Warren Buffett"},
+    {m:6,d:6,q:"The ideal business is one that takes no capital, and yet grows.",a:"Charlie Munger"},
+    {m:6,d:7,q:"When a management with a reputation for brilliance tackles a business with a reputation for poor economics, it is the reputation of the business that remains intact.",a:"Warren Buffett"},
+    {m:6,d:8,q:"Managers thinking about accounting issues should never forget one of Abraham Lincoln's favorite riddles: How many legs does a dog have if you call his tail a leg? The answer: Four.",a:"Warren Buffett"},
+    {m:6,d:9,q:"The single most important decision in evaluating a business is pricing power.",a:"Warren Buffett"},
+    {m:6,d:10,q:"I try to invest in businesses that are so wonderful that an idiot can run them. Because sooner or later, one will.",a:"Warren Buffett"},
+    {m:6,d:11,q:"A moat that must be continuously rebuilt will eventually be no moat at all.",a:"Warren Buffett"},
+    {m:6,d:12,q:"The most important thing is to find a business with a wide and long-lasting moat around it.",a:"Warren Buffett"},
+    {m:6,d:13,q:"We look for businesses that in general we think we understand, have good economics, and are run by people we trust.",a:"Warren Buffett"},
+    {m:6,d:14,q:"What we're looking for is the business that for one reason or another has a characteristic that allows it to earn well above average returns on capital.",a:"Warren Buffett"},
+    {m:6,d:15,q:"Great companies are built on great products.",a:"Warren Buffett"},
+    {m:6,d:16,q:"I like a business that, when it's not managed at all, it still does well.",a:"Warren Buffett"},
+    {m:6,d:17,q:"A horse that can count to ten is a remarkable horse — not a remarkable mathematician.",a:"Charlie Munger"},
+    {m:6,d:18,q:"We like companies where we can understand the business and its economics for the next 10 to 20 years.",a:"Warren Buffett"},
+    {m:6,d:19,q:"Capital allocation is the most important job of a CEO.",a:"Warren Buffett"},
+    {m:6,d:20,q:"The most important thing about a business is how much cash it generates.",a:"Warren Buffett"},
+    {m:6,d:21,q:"Growth is always a component in the calculation of value.",a:"Warren Buffett"},
+    {m:6,d:22,q:"There are businesses that inherently, because of the nature of their economics, will always be mediocre.",a:"Warren Buffett"},
+    {m:6,d:23,q:"If returns are going to be 7 or 8 percent and you're paying 1 percent for fees, that makes an enormous difference in how much money you're going to have in retirement.",a:"Warren Buffett"},
+    {m:6,d:24,q:"Brand is a promise. A good brand is a promise kept.",a:"Warren Buffett"},
+    {m:6,d:25,q:"We favor businesses and industries unlikely to experience major change.",a:"Warren Buffett"},
+    {m:6,d:26,q:"The best protection against inflation is a great business.",a:"Warren Buffett"},
+    {m:6,d:27,q:"We prefer companies with consistent earnings power, not cyclicals.",a:"Warren Buffett"},
+    {m:6,d:28,q:"It's better to have a partial interest in a great business than full ownership of a mediocre one.",a:"Warren Buffett"},
+    {m:6,d:29,q:"We don't need to own a thousand businesses. A handful of great ones will do.",a:"Charlie Munger"},
+    {m:6,d:30,q:"If the business earns 6% on capital and you hold it for 40 years, you will not do much better than 6% — even if the original price was a steal.",a:"Charlie Munger"},
+
+    // July - Learning & Reading
+    {m:7,d:1,q:"I just sit in my office and read all day.",a:"Warren Buffett"},
+    {m:7,d:2,q:"Read 500 pages every day. That's how knowledge works. It builds up, like compound interest.",a:"Warren Buffett"},
+    {m:7,d:3,q:"In my whole life, I have known no wise people who didn't read all the time — none, zero.",a:"Charlie Munger"},
+    {m:7,d:4,q:"The best thing I did was to choose the right heroes.",a:"Warren Buffett"},
+    {m:7,d:5,q:"Develop into a lifelong self-learner through voracious reading; cultivate curiosity and strive to become a little wiser every day.",a:"Charlie Munger"},
+    {m:7,d:6,q:"Go to bed smarter than when you woke up.",a:"Charlie Munger"},
+    {m:7,d:7,q:"I have always believed that the most important investment you can make is in yourself.",a:"Warren Buffett"},
+    {m:7,d:8,q:"The more you learn, the more you earn.",a:"Warren Buffett"},
+    {m:7,d:9,q:"I read and think. So I do more reading and thinking, and make less impulse decisions than most people in business.",a:"Warren Buffett"},
+    {m:7,d:10,q:"Anyone who keeps learning stays young.",a:"Warren Buffett"},
+    {m:7,d:11,q:"We read a lot. I don't know anyone who's wise who doesn't read a lot.",a:"Charlie Munger"},
+    {m:7,d:12,q:"Without the constant learning, you won't do well. You won't even hold your own.",a:"Charlie Munger"},
+    {m:7,d:13,q:"The best education you can get is investing in yourself, and that doesn't mean college or university.",a:"Warren Buffett"},
+    {m:7,d:14,q:"I spent 10 years learning to program my own mind.",a:"Charlie Munger"},
+    {m:7,d:15,q:"If you want to succeed in life, figure out what works and do more of it.",a:"Charlie Munger"},
+    {m:7,d:16,q:"We learn from history that people don't learn from history.",a:"Warren Buffett"},
+    {m:7,d:17,q:"There is no better teacher than history in determining the future.",a:"Charlie Munger"},
+    {m:7,d:18,q:"Wisdom acquisition is a moral duty. You are not complete if you don't work at it.",a:"Charlie Munger"},
+    {m:7,d:19,q:"I am a huge believer in the idea that we should all be lifetime students.",a:"Warren Buffett"},
+    {m:7,d:20,q:"The person who goes through life selecting friends who never disagree with him will not learn very much.",a:"Warren Buffett"},
+    {m:7,d:21,q:"I have noticed that everyone who has ever told me that diversification is good has not been a good investor.",a:"Charlie Munger"},
+    {m:7,d:22,q:"Take a simple idea and take it seriously.",a:"Charlie Munger"},
+    {m:7,d:23,q:"I make plenty of mistakes and I'll make plenty more mistakes too. That's part of the game. You've just got to make sure that the right things overcome the wrong ones.",a:"Warren Buffett"},
+    {m:7,d:24,q:"There's no way to get really smart by reading only what everyone else is reading.",a:"Charlie Munger"},
+    {m:7,d:25,q:"We both insist on a lot of time being available almost every day to just sit and think.",a:"Charlie Munger"},
+    {m:7,d:26,q:"The game of investing is one of making better predictions about the future than other people.",a:"Charlie Munger"},
+    {m:7,d:27,q:"I spend about six hours a day reading. I probably spend another two to three hours a day talking on the phone.",a:"Warren Buffett"},
+    {m:7,d:28,q:"Acquire worldly wisdom and adjust your behavior accordingly.",a:"Charlie Munger"},
+    {m:7,d:29,q:"Curiosity is one of the great features of a mind.",a:"Charlie Munger"},
+    {m:7,d:30,q:"I constantly see people rise in life who are not the smartest, sometimes not even the most diligent, but they are learning machines.",a:"Charlie Munger"},
+    {m:7,d:31,q:"Think about it: every experience, good or bad, teaches you something. The learning never stops.",a:"Warren Buffett"},
+
+    // August - Simplicity & Focus
+    {m:8,d:1,q:"There seems to be some perverse human characteristic that likes to make easy things difficult.",a:"Warren Buffett"},
+    {m:8,d:2,q:"Keep it simple. You don't need complex strategies to succeed.",a:"Warren Buffett"},
+    {m:8,d:3,q:"Simplicity is the ultimate sophistication in investing.",a:"Warren Buffett"},
+    {m:8,d:4,q:"I don't try to jump over seven-foot bars; I look for one-foot bars I can step over.",a:"Warren Buffett"},
+    {m:8,d:5,q:"The business schools reward difficult complex behavior more than simple behavior, but simple behavior is more effective.",a:"Warren Buffett"},
+    {m:8,d:6,q:"Keep all things as simple as you can. Avoiding stupidity is easier than seeking brilliance.",a:"Charlie Munger"},
+    {m:8,d:7,q:"It is remarkable how much long-term advantage people like us have gotten by trying to be consistently not stupid, instead of trying to be very intelligent.",a:"Charlie Munger"},
+    {m:8,d:8,q:"I am a huge admirer of evolution, but I do not think that randomness can explain complex designs.",a:"Charlie Munger"},
+    {m:8,d:9,q:"Focus on a few things and do them well.",a:"Warren Buffett"},
+    {m:8,d:10,q:"We have not succeeded by making the right big decision. We have succeeded by avoiding wrong decisions.",a:"Charlie Munger"},
+    {m:8,d:11,q:"If something is not worth doing at all, it is not worth doing well.",a:"Charlie Munger"},
+    {m:8,d:12,q:"Concentrate your investments. If you have a harem of forty women, you never get to know any of them very well.",a:"Warren Buffett"},
+    {m:8,d:13,q:"Put all your eggs in one basket and then watch that basket.",a:"Warren Buffett"},
+    {m:8,d:14,q:"What we really want to do is buy businesses that we'd be happy to own forever.",a:"Warren Buffett"},
+    {m:8,d:15,q:"Our approach has worked not because we're smart but because we're rational.",a:"Charlie Munger"},
+    {m:8,d:16,q:"The stock market is filled with individuals who know the price of everything, but the value of nothing.",a:"Warren Buffett"},
+    {m:8,d:17,q:"Do what you're passionate about and the money will follow.",a:"Warren Buffett"},
+    {m:8,d:18,q:"Great investing requires a lot of delayed gratification.",a:"Charlie Munger"},
+    {m:8,d:19,q:"We find it useful to focus on what is important and knowable.",a:"Warren Buffett"},
+    {m:8,d:20,q:"Don't do a lot of things. Do a few things well.",a:"Charlie Munger"},
+    {m:8,d:21,q:"Simplicity has a way of improving performance through enabling us to better understand what we are doing.",a:"Warren Buffett"},
+    {m:8,d:22,q:"The most powerful force in the universe is compound interest.",a:"Warren Buffett"},
+    {m:8,d:23,q:"We simply attempt to buy what we can understand and to hold for the long term.",a:"Warren Buffett"},
+    {m:8,d:24,q:"The difference between successful people and very successful people is that very successful people say no to almost everything.",a:"Warren Buffett"},
+    {m:8,d:25,q:"I could end the deficit in five minutes. You just pass a law that says that anytime there is a deficit of more than 3% of GDP all sitting members of Congress are ineligible for reelection.",a:"Warren Buffett"},
+    {m:8,d:26,q:"Wide diversification is only required when investors do not understand what they are doing.",a:"Warren Buffett"},
+    {m:8,d:27,q:"Stop trying to predict the direction of the stock market, the economy, interest rates, or elections.",a:"Warren Buffett"},
+    {m:8,d:28,q:"Invert, always invert: Turn a situation or problem upside down. Look at it backward.",a:"Charlie Munger"},
+    {m:8,d:29,q:"If you have to choose between a great manager and a great business, always choose the great business.",a:"Warren Buffett"},
+    {m:8,d:30,q:"The way to get rich is to keep $10 million in your checking account in case a good deal comes along.",a:"Charlie Munger"},
+    {m:8,d:31,q:"The secret to happiness is low expectations.",a:"Charlie Munger"},
+
+    // September - Character & Integrity
+    {m:9,d:1,q:"It takes 20 years to build a reputation and five minutes to ruin it. If you think about that, you'll do things differently.",a:"Warren Buffett"},
+    {m:9,d:2,q:"In looking for people to hire, look for three qualities: integrity, intelligence, and energy. If they don't have the first, the other two will kill you.",a:"Warren Buffett"},
+    {m:9,d:3,q:"Somebody once said that in looking for people to hire, you look for three qualities: integrity, intelligence, and energy. And if they don't have the first, the other two will kill you.",a:"Warren Buffett"},
+    {m:9,d:4,q:"Honesty is a very expensive gift. Don't expect it from cheap people.",a:"Warren Buffett"},
+    {m:9,d:5,q:"The most important thing in communication is hearing what isn't said.",a:"Warren Buffett"},
+    {m:9,d:6,q:"Trust is like the air we breathe — when it's present, nobody really notices. When it's absent, everybody notices.",a:"Warren Buffett"},
+    {m:9,d:7,q:"It's better to hang out with people better than you. Pick out associates whose behavior is better than yours and you'll drift in that direction.",a:"Warren Buffett"},
+    {m:9,d:8,q:"The best thing I did was to choose the right heroes.",a:"Warren Buffett"},
+    {m:9,d:9,q:"You're neither right nor wrong because other people agree with you. You're right because your facts are right and your reasoning is right.",a:"Warren Buffett"},
+    {m:9,d:10,q:"Show me the incentive and I will show you the outcome.",a:"Charlie Munger"},
+    {m:9,d:11,q:"We look for three things when we hire people: integrity, intelligence, and energy.",a:"Warren Buffett"},
+    {m:9,d:12,q:"Always associate yourself with people who are better than you.",a:"Warren Buffett"},
+    {m:9,d:13,q:"There's class warfare, all right, but it's my class, the rich class, that's making war, and we're winning.",a:"Warren Buffett"},
+    {m:9,d:14,q:"The only way to get love is to be lovable.",a:"Warren Buffett"},
+    {m:9,d:15,q:"Tell me who your heroes are and I'll tell you how you'll turn out to be.",a:"Warren Buffett"},
+    {m:9,d:16,q:"The CEO who misleads others in public may eventually mislead himself in private.",a:"Warren Buffett"},
+    {m:9,d:17,q:"A great business partner is one who will tell you what you need to hear, not what you want to hear.",a:"Charlie Munger"},
+    {m:9,d:18,q:"Remember that reputation and integrity are your most valuable assets — and can be lost in a heartbeat.",a:"Charlie Munger"},
+    {m:9,d:19,q:"You want to associate with people who have the kind of character that you'd like to have.",a:"Warren Buffett"},
+    {m:9,d:20,q:"The test of a first-rate intelligence is the ability to hold two opposed ideas in mind at the same time and still retain the ability to function.",a:"Charlie Munger"},
+    {m:9,d:21,q:"We've done better by avoiding dragons than by slaying them.",a:"Warren Buffett"},
+    {m:9,d:22,q:"Avoid dealing with people of questionable character.",a:"Charlie Munger"},
+    {m:9,d:23,q:"The first thing you need to succeed in business is character. The second is judgment. The third is energy.",a:"Charlie Munger"},
+    {m:9,d:24,q:"Deserve what you want. Trust, success, and admiration are all earned.",a:"Charlie Munger"},
+    {m:9,d:25,q:"Spend each day trying to be a little wiser than you were when you woke up.",a:"Charlie Munger"},
+    {m:9,d:26,q:"I believe in giving my kids enough that they can do anything, but not so much that they can do nothing.",a:"Warren Buffett"},
+    {m:9,d:27,q:"If you get into investing because it's fashionable, you'll lose money. If you invest because it makes sense, you won't.",a:"Warren Buffett"},
+    {m:9,d:28,q:"We want managers who treat every dollar as if it were their own.",a:"Warren Buffett"},
+    {m:9,d:29,q:"The chains of habit are too light to be felt until they are too heavy to be broken.",a:"Warren Buffett"},
+    {m:9,d:30,q:"In the end, we only regret the chances we didn't take, the relationships we were afraid to have, and the decisions we waited too long to make.",a:"Warren Buffett"},
+
+    // October - Market Wisdom
+    {m:10,d:1,q:"The stock market is a no-called-strike game. You don't have to swing at everything — you can wait for your pitch.",a:"Warren Buffett"},
+    {m:10,d:2,q:"Mr. Market is there to serve you, not to guide you.",a:"Warren Buffett"},
+    {m:10,d:3,q:"Bear markets are when stocks return to their rightful owners.",a:"Warren Buffett"},
+    {m:10,d:4,q:"The market, like the Lord, helps those who help themselves.",a:"Warren Buffett"},
+    {m:10,d:5,q:"What the wise do in the beginning, fools do in the end.",a:"Warren Buffett"},
+    {m:10,d:6,q:"I never attempt to make money on the stock market. I buy on the assumption that they could close the market the next day and not reopen it for five years.",a:"Warren Buffett"},
+    {m:10,d:7,q:"The most common cause of low prices is pessimism. We want to do business in such an environment, not because we like pessimism but because we like the prices it produces.",a:"Warren Buffett"},
+    {m:10,d:8,q:"Market forecasters will fill your ear but will never fill your wallet.",a:"Warren Buffett"},
+    {m:10,d:9,q:"Calling someone who trades actively in the market an investor is like calling someone who repeatedly engages in one-night stands a romantic.",a:"Warren Buffett"},
+    {m:10,d:10,q:"We believe that according the name 'investors' to institutions that trade actively is like calling someone who repeatedly engages in one-night stands a 'romantic.'",a:"Warren Buffett"},
+    {m:10,d:11,q:"Buy when there's blood in the streets, even if the blood is your own.",a:"Warren Buffett"},
+    {m:10,d:12,q:"The line separating investment and speculation, which is never bright and clear, becomes blurred still further when most market participants have recently enjoyed triumphs.",a:"Warren Buffett"},
+    {m:10,d:13,q:"Bull markets are born on pessimism, grow on skepticism, mature on optimism, and die on euphoria.",a:"Warren Buffett"},
+    {m:10,d:14,q:"You have to learn the models. And you have to learn the models from multiple disciplines.",a:"Charlie Munger"},
+    {m:10,d:15,q:"Over the long term, the stock market news will be good.",a:"Warren Buffett"},
+    {m:10,d:16,q:"Americans are in a period of fear and that is no time to stop investing.",a:"Warren Buffett"},
+    {m:10,d:17,q:"When bills come due, only cash is legal tender. Don't leave home without it.",a:"Warren Buffett"},
+    {m:10,d:18,q:"We need to think of the impact of what we do on the way others are going to behave.",a:"Charlie Munger"},
+    {m:10,d:19,q:"A short squeeze is nothing more than a transfer of wealth from one group to another.",a:"Warren Buffett"},
+    {m:10,d:20,q:"The fact that people are full of greed, fear, and folly is predictable. The sequence is not.",a:"Warren Buffett"},
+    {m:10,d:21,q:"People who buy and sell frequently tend to get worse returns than those who simply buy and hold.",a:"Warren Buffett"},
+    {m:10,d:22,q:"The only thing that gives me pleasure is to see my dividends coming in.",a:"Warren Buffett"},
+    {m:10,d:23,q:"We've had a wonderful run. But I don't think anyone should count on a repetition.",a:"Charlie Munger"},
+    {m:10,d:24,q:"Smart people do dumb things. The reason is they don't do what I call 'take it across the disciplines.'",a:"Charlie Munger"},
+    {m:10,d:25,q:"Every decade or so, dark clouds will fill the economic skies, and they will briefly rain gold.",a:"Warren Buffett"},
+    {m:10,d:26,q:"We have no idea — and never have had — whether the market is going to go up, down, or sideways in the near term.",a:"Warren Buffett"},
+    {m:10,d:27,q:"We do not have, never have had, and never will have an opinion about where the stock market, interest rates, or business activity will be a year from now.",a:"Warren Buffett"},
+    {m:10,d:28,q:"The world is full of foolish gamblers, and they will not do as well as the patient investors.",a:"Charlie Munger"},
+    {m:10,d:29,q:"If the market shut down for 10 years, I'd be perfectly happy holding my stocks.",a:"Warren Buffett"},
+    {m:10,d:30,q:"The market will always recover. The question is whether you can survive until it does.",a:"Warren Buffett"},
+    {m:10,d:31,q:"The intelligent investor is a realist who sells to optimists and buys from pessimists.",a:"Warren Buffett"},
+
+    // November - Compounding & Growth
+    {m:11,d:1,q:"My wealth has come from a combination of living in America, some lucky genes, and compound interest.",a:"Warren Buffett"},
+    {m:11,d:2,q:"Life is like a snowball. All you need is wet snow and a really long hill.",a:"Warren Buffett"},
+    {m:11,d:3,q:"The first rule of compounding: Never interrupt it unnecessarily.",a:"Charlie Munger"},
+    {m:11,d:4,q:"Understanding both the power of compound interest and the difficulty of getting it is the heart and soul of understanding a lot of things.",a:"Charlie Munger"},
+    {m:11,d:5,q:"Time is the friend of the wonderful business, the enemy of the mediocre.",a:"Warren Buffett"},
+    {m:11,d:6,q:"Do not save what is left after spending, but spend what is left after saving.",a:"Warren Buffett"},
+    {m:11,d:7,q:"The power of compound interest is the most powerful force in the universe.",a:"Warren Buffett"},
+    {m:11,d:8,q:"Someone is sitting in the shade today because someone planted a tree a long time ago.",a:"Warren Buffett"},
+    {m:11,d:9,q:"Over time, it takes just a few winners to work wonders.",a:"Warren Buffett"},
+    {m:11,d:10,q:"If you can earn a decent return and let it compound for a very long time, you will get very rich.",a:"Charlie Munger"},
+    {m:11,d:11,q:"An early start, a long runway, and consistent effort are the ingredients of compounding magic.",a:"Warren Buffett"},
+    {m:11,d:12,q:"I always knew I was going to be rich. I don't think I ever doubted it for a minute.",a:"Warren Buffett"},
+    {m:11,d:13,q:"Money will come to you if you are patient and invest it wisely.",a:"Warren Buffett"},
+    {m:11,d:14,q:"Our wealth has come from a combination of living in America, lucky genes, and compound interest.",a:"Warren Buffett"},
+    {m:11,d:15,q:"Do not be afraid to take a big step if one is indicated. You can't cross a chasm in two small jumps.",a:"Warren Buffett"},
+    {m:11,d:16,q:"What really matters in an investment career is whether the compounding machine works or not.",a:"Charlie Munger"},
+    {m:11,d:17,q:"If you understand compound interest you basically understand the universe.",a:"Charlie Munger"},
+    {m:11,d:18,q:"A dollar saved is a dollar earned — and then it compounds.",a:"Warren Buffett"},
+    {m:11,d:19,q:"The money is in the long-term holding, not in the frequent trading.",a:"Warren Buffett"},
+    {m:11,d:20,q:"Patience is the key. When you let compounding work its magic, the results are extraordinary.",a:"Warren Buffett"},
+    {m:11,d:21,q:"It's the nature of compound interest to behave like a snowball rolling downhill.",a:"Warren Buffett"},
+    {m:11,d:22,q:"The greatest investment any young person can make is in their own education, in their own mind.",a:"Warren Buffett"},
+    {m:11,d:23,q:"Our approach is about growing value over time, not timing the market.",a:"Warren Buffett"},
+    {m:11,d:24,q:"We will reject interesting opportunities rather than over-leverage. We will never depend on the kindness of strangers.",a:"Warren Buffett"},
+    {m:11,d:25,q:"The best thing a young person can do is start saving early.",a:"Warren Buffett"},
+    {m:11,d:26,q:"I buy businesses, not stocks, not bonds. I buy businesses.",a:"Warren Buffett"},
+    {m:11,d:27,q:"A long-term approach to investing is the only approach that makes sense for most people.",a:"Warren Buffett"},
+    {m:11,d:28,q:"Wealth is largely the result of habit.",a:"Warren Buffett"},
+    {m:11,d:29,q:"Time is your friend; impulse is your enemy.",a:"Warren Buffett"},
+    {m:11,d:30,q:"The speed of capital accumulation has a lot to do with how early you start.",a:"Charlie Munger"},
+
+    // December - Reflection & Review
+    {m:12,d:1,q:"We always keep enough cash around so I feel comfortable and don't worry about what the market is going to do next.",a:"Warren Buffett"},
+    {m:12,d:2,q:"In the business world, the rearview mirror is always clearer than the windshield.",a:"Warren Buffett"},
+    {m:12,d:3,q:"Should you find yourself in a chronically leaking boat, energy devoted to changing vessels is likely to be more productive than energy devoted to patching leaks.",a:"Warren Buffett"},
+    {m:12,d:4,q:"It's good to learn from your mistakes. It's better to learn from other people's mistakes.",a:"Warren Buffett"},
+    {m:12,d:5,q:"I make mistakes all the time. But I try not to make the big ones.",a:"Warren Buffett"},
+    {m:12,d:6,q:"You should look at stocks as small pieces of business. Look at market fluctuations as your friend rather than your enemy.",a:"Warren Buffett"},
+    {m:12,d:7,q:"After some other mistakes, I learned to go into business only with people whom I like, trust, and admire.",a:"Warren Buffett"},
+    {m:12,d:8,q:"When you look back on your life, you'll realize that the most important things were the relationships you built.",a:"Warren Buffett"},
+    {m:12,d:9,q:"I want to give my children enough that they can do anything, but not so much that they can do nothing.",a:"Warren Buffett"},
+    {m:12,d:10,q:"The real key to happiness isn't wealth; it's finding something you love to do and someone to love you.",a:"Warren Buffett"},
+    {m:12,d:11,q:"Enjoy your work and work for whom you admire, and you'll do well in life.",a:"Warren Buffett"},
+    {m:12,d:12,q:"Basically, when you get to my age, you'll really measure your success in life by how many of the people you want to have love you actually do love you.",a:"Warren Buffett"},
+    {m:12,d:13,q:"I always say the most powerful person in the world is the storyteller.",a:"Warren Buffett"},
+    {m:12,d:14,q:"When you get to the end of your life, you want to look back and feel like you lived a meaningful life.",a:"Warren Buffett"},
+    {m:12,d:15,q:"The happiest people I know are those who are doing something they believe in.",a:"Warren Buffett"},
+    {m:12,d:16,q:"The most important thing to do if you find yourself in a hole is to stop digging.",a:"Warren Buffett"},
+    {m:12,d:17,q:"I think the most important factor in getting out of the recession is just the regenerative capacity of American capitalism.",a:"Warren Buffett"},
+    {m:12,d:18,q:"All you need to be an intelligent investor is the ability to see the world as it really is.",a:"Warren Buffett"},
+    {m:12,d:19,q:"I like thinking big. If you're going to be thinking anything, you might as well think big.",a:"Warren Buffett"},
+    {m:12,d:20,q:"Life is like a snowball. The important thing is finding wet snow and a really long hill.",a:"Warren Buffett"},
+    {m:12,d:21,q:"A year-end review of your investments is like a report card — learn from it.",a:"Warren Buffett"},
+    {m:12,d:22,q:"The best investment you can make is in your own abilities. Anything you can do to develop your own abilities or business is likely to be more productive.",a:"Warren Buffett"},
+    {m:12,d:23,q:"At the end of the day, what matters most isn't what you earned but what you learned.",a:"Charlie Munger"},
+    {m:12,d:24,q:"A truly good business generates far more money than it can reinvest. A truly great investor knows where to put that excess.",a:"Warren Buffett"},
+    {m:12,d:25,q:"The holidays remind us: the greatest wealth is having people around you who genuinely care about you.",a:"Warren Buffett"},
+    {m:12,d:26,q:"I've learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel.",a:"Warren Buffett"},
+    {m:12,d:27,q:"Every experience is a lesson if you choose to see it that way.",a:"Charlie Munger"},
+    {m:12,d:28,q:"Reflect on the year that was. Celebrate your wins, learn from your losses, and plan for next year with wisdom.",a:"Warren Buffett"},
+    {m:12,d:29,q:"Take the high road; it is far less crowded.",a:"Warren Buffett"},
+    {m:12,d:30,q:"The best time to plant a tree was 20 years ago. The second best time is now.",a:"Warren Buffett"},
+    {m:12,d:31,q:"As we close this year, remember: the most important thing is how you treat people and what you learn along the way.",a:"Warren Buffett"}
+];
+
+const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+let currentMonth = new Date().getMonth() + 1;
+let displayCount = 9;
+
+function getTodayQuote() {
+    const now = new Date();
+    const m = now.getMonth() + 1;
+    const d = now.getDate();
+    let q = quotes.find(x => x.m === m && x.d === d);
+    if (!q) q = quotes[Math.floor(Math.random() * quotes.length)];
+    return q;
+}
+
+function randomWisdom() {
+    const q = quotes[Math.floor(Math.random() * quotes.length)];
+    document.getElementById('today-quote').textContent = `"${q.q}"`;
+    document.getElementById('today-author').textContent = `— ${q.a}`;
+    document.getElementById('today-date').textContent = `${monthNames[q.m-1]} ${q.d} | ${monthThemes[q.m-1]}`;
+    document.querySelector('#today .bg-white').classList.remove('fade-in');
+    void document.querySelector('#today .bg-white').offsetWidth;
+    document.querySelector('#today .bg-white').classList.add('fade-in');
+}
+
+function renderMonthNav() {
+    const nav = document.getElementById('month-nav');
+    nav.innerHTML = monthNames.map((name, i) =>
+        `<button onclick="selectMonth(${i+1})" class="month-btn px-4 py-2 rounded-full text-sm font-medium border border-gray-200 hover:bg-navy-800 hover:text-white transition ${currentMonth === i+1 ? 'active' : 'bg-white text-gray-700'}">${name.substring(0,3)}</button>`
+    ).join('');
+}
+
+function selectMonth(m) {
+    currentMonth = m;
+    displayCount = 9;
+    renderMonthNav();
+    renderQuotes();
+}
+
+function renderQuotes() {
+    const grid = document.getElementById('quotes-grid');
+    const monthQuotes = quotes.filter(q => q.m === currentMonth);
+    const visible = monthQuotes.slice(0, displayCount);
+    grid.innerHTML = visible.map(q => `
+        <div class="quote-card bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div class="text-xs font-medium text-amber-600 mb-2">${monthNames[q.m-1]} ${q.d} <span class="text-gray-400">| ${monthThemes[q.m-1]}</span></div>
+            <blockquote class="font-serif-display text-lg text-navy-800 leading-relaxed mb-3">"${q.q}"</blockquote>
+            <div class="text-sm text-gray-500">— ${q.a}</div>
+        </div>
+    `).join('');
+    document.getElementById('load-more-btn').style.display = displayCount >= monthQuotes.length ? 'none' : 'inline-block';
+}
+
+function loadMore() {
+    displayCount += 9;
+    renderQuotes();
+}
+
+// Init
+const todayQ = getTodayQuote();
+document.getElementById('today-quote').textContent = `"${todayQ.q}"`;
+document.getElementById('today-author').textContent = `— ${todayQ.a}`;
+document.getElementById('today-date').textContent = `${monthNames[todayQ.m-1]} ${todayQ.d} | ${monthThemes[todayQ.m-1]}`;
+renderMonthNav();
+renderQuotes();
+</script>
+</body>
+</html>
